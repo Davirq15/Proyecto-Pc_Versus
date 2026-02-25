@@ -1,0 +1,104 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BODY */
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: url("img/fondo1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+/* CONTENEDOR CENTRAL */
+.contenedor {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 300px;
+}
+
+/* LOGO */
+.logo {
+    width: 580px;
+    margin-bottom: 20px;
+}
+
+/* ================= BOTONES ================= */
+
+/* BOTON LOGIN */
+.boton-inicio {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #8234ff;
+    color: white;
+
+    text-decoration: none; /* quita estilo link */
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+/* evitar color morado/azul del link */
+.boton-inicio:link,
+.boton-inicio:visited {
+    color: white;
+}
+
+/* hover */
+.boton-inicio:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #8234ff;
+}
+
+
+/* BOTON INICIAR */
+.boton-iniciar {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #6200ff;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.boton-iniciar:link,
+.boton-iniciar:visited {
+    color: white;
+}
+
+.boton-iniciar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #6200ff;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.8);
+    padding: 20px 0;
+    margin-top: auto;
+}
