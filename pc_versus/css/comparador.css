@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+}
+
+/* BOTON REGRESAR */
+.boton-regresar {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #6200ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.boton-regresar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #6200ff;
+}
+
+/* LOGO */
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 350px;
+    height: auto;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    background-image: url("img/fondo2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    width: 600px;
+    background: rgba(211, 211, 211, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* CATEGORÍAS */
+.categorias {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    font-family: 'RobotoLocal', sans-serif;
+}
+
+.categorias button {
+    padding: 10px 20px;
+    background: #6200ff;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.categorias button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #6200ff;
+}
+
+/* LISTA */
+.lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    font-family: 'Jersey25', sans-serif;
+}
+
+/* CARD */
+.card {
+    background: #726d8a;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* CARD SELECCIONADA */
+.card.selected {
+    border: 2px solid #6200ff;
+    background: #8c86b3;
+    box-shadow: 0 0 15px #6200ff;
+}
+
+/* SELECCIÓN */
+.seleccion {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* SLOT */
+.slot {
+    flex: 1;
+    background: #a39cc5;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Jersey25', sans-serif;
+}
+
+/* BOTÓN COMPARAR */
+#btnComparar {
+    padding: 12px 25px;
+    background: #6200ff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#btnComparar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #6200ff;
+}
+
+/* FONTS */
+@font-face {
+    font-family: 'RobotoLocal';
+    src: url('fonts/ZenDots-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Jersey25';
+    src: url('fonts/Jersey25-Regular.ttf');
+}
+
+/* ----- VERSIÓN 4.0 DEL CÓDIGO ----- */

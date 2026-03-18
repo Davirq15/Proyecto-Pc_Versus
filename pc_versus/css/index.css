@@ -1,0 +1,156 @@
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+color:white;
+}
+
+/* FONDO */
+
+.main{
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+
+background-image:url("img/fondo1.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+/* BOTONES SUPERIORES */
+
+.btn-login{
+margin:10px auto;
+display:block;
+
+padding:0.4rem 1.4rem;
+font-size:0.9rem;
+
+background:transparent;
+color:white;
+
+border:2px solid #6200ff;
+border-radius:20px;
+
+cursor:pointer;
+
+transition:0.25s;
+}
+
+.btn-login:hover{
+background:#6200ff;
+box-shadow:0 0 10px #6200ff;
+}
+
+/* HERO */
+
+.contenedor{
+text-align:center;
+
+margin-top:120px;
+margin-bottom:80px;
+}
+
+.logo{
+width:550px;
+max-width:90%;
+margin-bottom:30px;
+}
+
+/* BOTON PRINCIPAL */
+
+.boton-iniciar{
+padding:12px 40px;
+
+font-size:1.2rem;
+font-weight:bold;
+
+background:#6200ff;
+color:white;
+
+border:none;
+border-radius:8px;
+
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.boton-iniciar:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px #6200ff;
+}
+
+/* SECCION INFO */
+
+.info{
+width:900px;
+max-width:90%;
+
+margin:0 auto;
+margin-bottom:80px;
+
+padding:40px;
+
+background:rgba(0,0,0,0.65);
+
+border-radius:12px;
+
+text-align:left;
+}
+
+.info h2{
+margin-top:20px;
+margin-bottom:10px;
+
+font-size:1.8rem;
+color:#6200ff;
+}
+
+.info p{
+line-height:1.7;
+margin-bottom:15px;
+}
+
+.info ul{
+margin-top:10px;
+}
+
+.info li{
+margin-left:20px;
+margin-bottom:6px;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:auto;
+
+text-align:center;
+
+background:rgba(0,0,0,0.85);
+
+padding:20px;
+}
+
+.footer a{
+color:#6200ff;
+text-decoration:none;
+}
+
+/* FUENTE */
+
+@font-face{
+font-family:'RobotoLocal';
+src:url('fonts/ZenDots-Regular.ttf');
+}
+
+/* ----- VERSIÓN 4.0 DEL CÓDIGO ----- */
