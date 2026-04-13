@@ -1,76 +1,116 @@
 <?php
 session_start();
-
-$mensaje = "";
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>PC VERSUS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <title>PC VERSUS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
 </head>
-
 <body class="main">
 
-<!-- BOTONES LOGIN / REGISTER -->
+<header class="topbar">
+    <a class="brand" href="index.php">PC VERSUS</a>
 
-<?php if(!isset($_SESSION["usuario"])): ?>
+    <div class="topbar-actions">
+        <?php if(!isset($_SESSION["usuario"])): ?>
+            <a class="btn-login secondary" href="register.php">Crear cuenta</a>
+            <a class="btn-login" href="login.php">Iniciar sesion</a>
+        <?php else: ?>
+            <span class="user-badge">Bienvenido, <?php echo htmlspecialchars($_SESSION["usuario"]); ?></span>
+            <a class="btn-login secondary" href="logout.php">Cerrar sesion</a>
+        <?php endif; ?>
+    </div>
+</header>
 
-<a href="register.html"><button class="btn-login">REGISTER</button></a>
-<a href="login.html"><button class="btn-login">INICIAR SESIÓN</button></a>
+<main class="hero-layout">
+    <section class="hero-copy">
+        <p class="eyebrow">Comparador interactivo de hardware</p>
+        <h1>Arma el versus definitivo entre tus componentes favoritos.</h1>
+        <p class="hero-text">
+            Compara CPU, GPU y RAM en una interfaz clara, rapida y con estilo gamer.
+            Ideal para practicar, aprender hardware o decidir tu proxima compra.
+        </p>
 
-<?php else: ?>
+        <div class="hero-actions">
+            <a class="boton-iniciar" href="comparador.php">Entrar al comparador</a>
+            <?php if(!isset($_SESSION["usuario"])): ?>
+                <a class="text-link" href="register.php">Empieza creando tu perfil</a>
+            <?php endif; ?>
+        </div>
 
-<p style="color:lime;text-align:center;">
-Bienvenido, <?php echo $_SESSION["usuario"]; ?>
-</p>
-<br>
-<!-- MENSAJE LOGIN -->
+        <div class="stats-grid">
+            <article class="stat-card">
+                <strong>3</strong>
+                <span>Categorias listas para comparar</span>
+            </article>
+            <article class="stat-card">
+                <strong>UI</strong>
+                <span>Diseño renovado y adaptable a celular</span>
+            </article>
+            <article class="stat-card">
+                <strong>FAST</strong>
+                <span>Selecciona dos piezas y ve el ganador al instante</span>
+            </article>
+        </div>
+    </section>
 
-<a href="logout.php">
-<button class="btn-login">CERRAR SESIÓN</button>
-</a>
+    <section class="hero-visual">
+        <div class="visual-card">
+            <div class="visual-glow"></div>
+            <img src="css/img/versus.png" class="logo" alt="Logo de PC Versus">
 
-<?php endif; ?>
+            <div class="feature-list">
+                <div>
+                    <span class="feature-tag">CPU</span>
+                    <p>Potencia de procesamiento</p>
+                </div>
+                <div>
+                    <span class="feature-tag">GPU</span>
+                    <p>Rendimiento grafico</p>
+                </div>
+                <div>
+                    <span class="feature-tag">RAM</span>
+                    <p>Velocidad y multitarea</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
-<!-- CONTENIDO PRINCIPAL -->
-
-<div class="contenedor">
-
-<img src="css/img/versus.png" class="logo">
-<br>
-<a href="comparador.php">
-<button class="boton-iniciar">INICIAR</button>
-</a>
-
-</div>
-
-<!-- FOOTER -->
+<section class="info-strip">
+    <article>
+        <h2>Visual claro</h2>
+        <p>Todo esta acomodado para que el usuario entienda rapido que comparar y como avanzar.</p>
+    </article>
+    <article>
+        <h2>Look gamer</h2>
+        <p>Fondos, brillos y tipografias propias para que el proyecto se sienta mas pro.</p>
+    </article>
+    <article>
+        <h2>Mejor experiencia</h2>
+        <p>Botones consistentes, espaciado limpio y mejor lectura tanto en desktop como en movil.</p>
+    </article>
+</section>
 
 <footer class="footer">
+    <div class="footer-name">
+        <h3>PC VERSUS</h3>
+        <p>Comparador de PC con estilo arcade-tech.</p>
+    </div>
 
-<div class="footer-name">
-<h3>PC VERSUS</h3>
-<p>Comparador de PC</p>
-</div>
+    <div class="footer-links">
+        <a href="comparador.php">Comparador</a>
+        <a href="login.html">Acceder</a>
+        <a href="register.html">Registro</a>
+    </div>
 
-<div class="footer-links">
-<a href="#">Contacto</a>
-</div>
-
-<div class="footer-social">
-<a href="#">Instagram</a>
-<a href="#">GitHub</a>
-</div>
-
-<p>© 2026 PC Versus - Todos los derechos reservados</p>
-
+    <p>&copy; 2026 PC Versus - Todos los derechos reservados</p>
 </footer>
 
 </body>
 </html>
 
-<!--VERSIÓN 4.5 DEL CÓDIGO-->
+<!--VERSIÓN 7.2 DEL CÓDIGO-->
