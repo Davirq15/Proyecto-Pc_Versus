@@ -103,8 +103,8 @@ session_start();
 
     <div class="footer-links">
         <a href="comparador.php">Comparador</a>
-        <a href="login.html">Acceder</a>
-        <a href="register.html">Registro</a>
+        <a href="login.php">Acceder</a>
+        <a href="register.php">Registro</a>
     </div>
 
     <p>&copy; 2026 PC Versus - Todos los derechos reservados</p>
