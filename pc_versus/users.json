@@ -3,5 +3,10 @@
         "usuario": "david",
         "email": "davidreyesquijano15@gmail.com",
         "password": "$2y$10$dvtXKABCs20ZCN0zPU.Jd.zj7OPnUA17nnh1.oquzZai5ReQnPfIO"
+    },
+    {
+        "usuario": "david1",
+        "email": "alu.2611557@itesrenedescartes.edu.mx",
+        "password": "$2y$10$Hfpko91J8jOvih6fVI0cN.0O\/OLKxf7s3Wo9jpzDGbcdBIrkwXwQC"
     }
 ]

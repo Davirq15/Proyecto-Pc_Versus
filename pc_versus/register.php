@@ -80,6 +80,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Mensaje de éxito
         $mensajeExito = "Registro exitoso";
+        
+            // Redirige al inicio
+            header("Location: index.php");
+            exit();
     }
 }
 ?>
