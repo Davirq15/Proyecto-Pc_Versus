@@ -153,7 +153,7 @@ if(!isset($_SESSION["usuario"])){
 
             <!-- Contenedor donde JS inserta los componentes -->
             <div class="lista" id="lista"></div>
-
+<br>
             <!-- Resultado de la comparación -->
             <section class="resultado" id="resultado">
 
