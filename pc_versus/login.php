@@ -79,22 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <title>Login</title>
 <link rel="stylesheet" href="css/register.css">
 
-<style>
-.mensaje{
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.error{
-    background: #ff4d4d20;
-    border: 1px solid red;
-    color: red;
-}
-</style>
-
 </head>
-<body>
+<body class="auth-page">
 
 <header class="header">
 <a href="index.php">

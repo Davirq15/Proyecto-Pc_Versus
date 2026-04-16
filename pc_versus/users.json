@@ -5,8 +5,13 @@
         "password": "$2y$10$dvtXKABCs20ZCN0zPU.Jd.zj7OPnUA17nnh1.oquzZai5ReQnPfIO"
     },
     {
+        "usuario": "sigma",
+        "email": "alu.2611557@itesrenedescartes.edu.mx",
+        "password": "$2y$10$W4R3nvgD7Y4FwKJ\/lKEQqOP1S.QRJn9mw1lkb36gF41pE\/slVYRiS"
+    },
+    {
         "usuario": "david1",
         "email": "alu.2611557@itesrenedescartes.edu.mx",
-        "password": "$2y$10$Hfpko91J8jOvih6fVI0cN.0O\/OLKxf7s3Wo9jpzDGbcdBIrkwXwQC"
+        "password": "$2y$10$9KndiPA0Ea7XtCZkuioBMe.D6brqThnmFna\/5X9WiqQcUEeJdrIP6"
     }
 ]

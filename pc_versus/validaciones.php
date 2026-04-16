@@ -14,5 +14,3 @@ function validarEmail($correo){
 function validarPassword($password){
     return strlen($password) >= 8;
 }
-
-?>

@@ -456,6 +456,48 @@ input{
     border-radius:var(--radius);
 }
 
+body{
+    animation:pageLoad .95s ease both;
+}
+
+.header{
+    animation:fadeDown .8s ease both;
+}
+
+.hero-panel,
+.hero-logo,
+.hero-stats article,
+.panel,
+.card,
+.resultado-card{
+    opacity:0;
+    animation:fadeIn .9s ease both;
+    animation-delay:.12s;
+}
+
+.card:hover{
+    transform:translateY(-4px) scale(1.01);
+}
+
+.boton-regresar{
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.boton-regresar:hover{
+    transform:translateY(-2px);
+}
+
+.stat-bar span{
+    transform-origin:left;
+    transform:scaleX(0);
+    animation:fillBar .8s ease forwards;
+}
+
+@keyframes pageLoad{ from{ opacity:0; transform: translateY(24px); } to{ opacity:1; transform: translateY(0); } }
+@keyframes fadeDown{ from{ opacity:0; transform: translateY(-14px); } to{ opacity:1; transform: translateY(0); } }
+@keyframes fadeIn{ from{ opacity:0; transform: translateY(12px); } to{ opacity:1; transform: translateY(0); } }
+@keyframes fillBar{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+
 /* RESPONSIVE */
 @media (max-width:900px){
     .hero-panel,
