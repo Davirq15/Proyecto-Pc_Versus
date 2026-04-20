@@ -9,52 +9,14 @@ const botonesCategoria = document.querySelectorAll(".categorias button");
 const tituloLista = document.getElementById("tituloLista");
 const listaInfo = document.getElementById("listaInfo");
 const statTotal = document.getElementById("statTotal");
+const btnMostrarFormulario = document.getElementById("btnMostrarFormulario");
+const formAgregar = document.getElementById("formAgregar");
+const mensajeFormulario = document.getElementById("mensajeFormulario");
+const categoriaNueva = document.getElementById("categoriaNueva");
 
 let seleccionados = [];
 let categoriaActual = "CPU";
-
-const datos = {
-CPU: [
-    {nombre:"Ryzen 3 4100", rendimiento:5, gama:"Entrada", specs:"4 nucleos / 8 hilos"},
-    {nombre:"Ryzen 5 4500", rendimiento:6, gama:"Entrada", specs:"6 nucleos / 12 hilos"},
-    {nombre:"Ryzen 5 5600X", rendimiento:8, gama:"Media", specs:"6 nucleos / 12 hilos"},
-    {nombre:"Ryzen 7 5700X", rendimiento:9, gama:"Alta", specs:"8 nucleos / 16 hilos"},
-    {nombre:"Ryzen 7 5800X", rendimiento:9, gama:"Alta", specs:"8 nucleos / 16 hilos"},
-    {nombre:"Ryzen 9 5900X", rendimiento:10, gama:"Entusiasta", specs:"12 nucleos / 24 hilos"},
-    {nombre:"Intel i3 12100F", rendimiento:6, gama:"Entrada", specs:"4 nucleos / 8 hilos"},
-    {nombre:"Intel i5 12400F", rendimiento:8, gama:"Media", specs:"6 nucleos / 12 hilos"},
-    {nombre:"Intel i5 13400F", rendimiento:9, gama:"Media", specs:"10 nucleos / 16 hilos"},
-    {nombre:"Intel i7 12700K", rendimiento:10, gama:"Alta", specs:"12 nucleos / 20 hilos"},
-    {nombre:"Intel i7 13700K", rendimiento:10, gama:"Entusiasta", specs:"16 nucleos / 24 hilos"},
-    {nombre:"Intel i9 13900K", rendimiento:10, gama:"Entusiasta", specs:"24 nucleos / 32 hilos"}
-],
-GPU: [
-    {nombre:"GTX 1660 Super", rendimiento:5, gama:"Entrada", specs:"6GB GDDR6"},
-    {nombre:"RTX 2060", rendimiento:6, gama:"Entrada", specs:"6GB GDDR6"},
-    {nombre:"RTX 3060", rendimiento:7, gama:"Media", specs:"12GB GDDR6"},
-    {nombre:"RTX 4060", rendimiento:8, gama:"Media", specs:"8GB GDDR6"},
-    {nombre:"RTX 4060 Ti", rendimiento:8, gama:"Media", specs:"8GB GDDR6"},
-    {nombre:"RTX 4070", rendimiento:9, gama:"Alta", specs:"12GB GDDR6X"},
-    {nombre:"RTX 4070 Super", rendimiento:9, gama:"Alta", specs:"12GB GDDR6X"},
-    {nombre:"RTX 4080", rendimiento:10, gama:"Entusiasta", specs:"16GB GDDR6X"},
-    {nombre:"RX 6600", rendimiento:7, gama:"Media", specs:"8GB GDDR6"},
-    {nombre:"RX 6700 XT", rendimiento:8, gama:"Media", specs:"12GB GDDR6"},
-    {nombre:"RX 6800 XT", rendimiento:9, gama:"Alta", specs:"16GB GDDR6"},
-    {nombre:"RX 7900 XT", rendimiento:10, gama:"Entusiasta", specs:"20GB GDDR6"}
-],
-RAM: [
-    {nombre:"8GB 2666MHz", rendimiento:5, gama:"Entrada", specs:"Single channel"},
-    {nombre:"8GB 3200MHz", rendimiento:6, gama:"Entrada", specs:"Single channel"},
-    {nombre:"16GB 3200MHz", rendimiento:8, gama:"Media", specs:"Dual channel"},
-    {nombre:"16GB 3600MHz", rendimiento:9, gama:"Media", specs:"Dual channel"},
-    {nombre:"16GB DDR5 5200MHz", rendimiento:9, gama:"Alta", specs:"Dual channel"},
-    {nombre:"32GB 3200MHz", rendimiento:9, gama:"Alta", specs:"Dual channel"},
-    {nombre:"32GB 3600MHz", rendimiento:10, gama:"Alta", specs:"Dual channel"},
-    {nombre:"32GB DDR5 5600MHz", rendimiento:10, gama:"Entusiasta", specs:"Dual channel"},
-    {nombre:"64GB 3200MHz", rendimiento:10, gama:"Entusiasta", specs:"Dual channel"},
-    {nombre:"64GB DDR5 6000MHz", rendimiento:10, gama:"Entusiasta", specs:"Dual channel"}
-]
-};
+let datos = { CPU: [], GPU: [], RAM: [] };
 
 document.getElementById("btnCPU").onclick = () => cambiarCategoria("CPU");
 document.getElementById("btnGPU").onclick = () => cambiarCategoria("GPU");
@@ -63,10 +25,13 @@ document.getElementById("btnRAM").onclick = () => cambiarCategoria("RAM");
 buscador.addEventListener("input", () => renderLista());
 btnComparar.addEventListener("click", comparar);
 btnLimpiar.addEventListener("click", limpiarSeleccion);
+btnMostrarFormulario.addEventListener("click", alternarFormulario);
+formAgregar.addEventListener("submit", guardarComponente);
 
 function cambiarCategoria(tipo){
     categoriaActual = tipo;
     buscador.value = "";
+    categoriaNueva.value = tipo;
     limpiarSeleccion(false);
     renderLista();
 }
@@ -91,7 +56,8 @@ function limpiarSeleccion(resetResultado = true){
 
 function renderLista(){
     const filtro = buscador.value.trim().toLowerCase();
-    const componentes = datos[categoriaActual].filter(comp =>
+    const catalogo = Array.isArray(datos[categoriaActual]) ? datos[categoriaActual] : [];
+    const componentes = catalogo.filter(comp =>
         comp.nombre.toLowerCase().includes(filtro)
     );
 
@@ -101,7 +67,7 @@ function renderLista(){
 
     tituloLista.textContent = `${categoriaActual} disponibles`;
     listaInfo.textContent = `${componentes.length} componente(s) encontrados en ${categoriaActual}.`;
-    statTotal.textContent = datos[categoriaActual].length;
+    statTotal.textContent = catalogo.length;
 
     lista.innerHTML = "";
 
@@ -137,6 +103,90 @@ function renderLista(){
     });
 }
 
+async function cargarComponentes(){
+    lista.innerHTML = `
+        <div class="empty-state">
+            <h3>Cargando...</h3>
+            <p>Estamos leyendo el catalogo de componentes.</p>
+        </div>
+    `;
+
+    try{
+        const respuesta = await fetch("componentes_api.php");
+        const contenido = await respuesta.json();
+
+        if(!respuesta.ok || !contenido.ok){
+            throw new Error(contenido.mensaje || "No se pudo cargar el catalogo");
+        }
+
+        datos = contenido.datos;
+        renderLista();
+    }catch(error){
+        lista.innerHTML = `
+            <div class="empty-state">
+                <h3>Error</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+        listaInfo.textContent = "No se pudo cargar el catalogo.";
+    }
+}
+
+function alternarFormulario(){
+    formAgregar.classList.toggle("oculto");
+    mensajeFormulario.classList.remove("error", "success");
+
+    if(formAgregar.classList.contains("oculto")){
+        mensajeFormulario.textContent = "Aqui podras crear nuevos componentes y guardarlos en el JSON.";
+        return;
+    }
+
+    categoriaNueva.value = categoriaActual;
+    mensajeFormulario.textContent = "Llena el formulario y guarda el nuevo componente.";
+}
+
+async function guardarComponente(event){
+    event.preventDefault();
+
+    const formData = new FormData(formAgregar);
+    const nuevo = {
+        categoria: formData.get("categoria"),
+        nombre: formData.get("nombre").trim(),
+        gama: formData.get("gama").trim(),
+        specs: formData.get("specs").trim(),
+        rendimiento: Number(formData.get("rendimiento"))
+    };
+
+    mensajeFormulario.classList.remove("error", "success");
+    mensajeFormulario.textContent = "Guardando componente...";
+
+    try{
+        const respuesta = await fetch("componentes_api.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(nuevo)
+        });
+
+        const contenido = await respuesta.json();
+
+        if(!respuesta.ok || !contenido.ok){
+            throw new Error(contenido.mensaje || "No se pudo guardar el componente");
+        }
+
+        datos = contenido.datos;
+        formAgregar.reset();
+        formAgregar.classList.add("oculto");
+        mensajeFormulario.classList.add("success");
+        mensajeFormulario.textContent = contenido.mensaje;
+        cambiarCategoria(nuevo.categoria);
+    }catch(error){
+        mensajeFormulario.classList.add("error");
+        mensajeFormulario.textContent = error.message;
+    }
+}
+
 function seleccionar(comp, card){
     if(seleccionados.some(item => item.nombre === comp.nombre)) return;
     if(seleccionados.length >= 2) return;
@@ -158,9 +208,12 @@ function comparar(){
     const c1 = seleccionados[0];
     const c2 = seleccionados[1];
 
+    const c1Class = c1.rendimiento === c2.rendimiento ? "tie" : (c1.rendimiento > c2.rendimiento ? "winner" : "loser");
+    const c2Class = c1.rendimiento === c2.rendimiento ? "tie" : (c2.rendimiento > c1.rendimiento ? "winner" : "loser");
+
     let ganador = "";
     let mensaje = "";
-    let diferencia = Math.abs(c1.rendimiento - c2.rendimiento);
+    const diferencia = Math.abs(c1.rendimiento - c2.rendimiento);
 
     if(c1.rendimiento > c2.rendimiento){
         ganador = c1.nombre;
@@ -173,24 +226,53 @@ function comparar(){
         mensaje = `Ambos componentes ofrecen el mismo rendimiento en ${categoriaActual}.`;
     }
 
+    const c1Progress = c1.rendimiento * 10;
+    const c2Progress = c2.rendimiento * 10;
+
     resultado.innerHTML = `
-        <h2>${ganador}</h2>
+        <div class="resultado-header">
+            <div class="resultado-title">
+                <h2>${ganador}</h2>
+                <span class="resultado-badge">${categoriaActual}</span>
+            </div>
+            <p class="resultado-texto">${mensaje}</p>
+        </div>
         <div class="resultado-grid">
-            <article>
-                <span>Componente 1</span>
-                <strong>${c1.nombre}</strong>
+            <article class="resultado-card ${c1Class}">
+                <div class="card-hero">
+                    <span>Componente 1</span>
+                    <strong>${c1.nombre}</strong>
+                </div>
                 <p>${c1.specs}</p>
-                <b>${c1.rendimiento}/10</b>
+                <div class="stat-line">
+                    <span>Rendimiento</span>
+                    <strong>${c1.rendimiento}/10</strong>
+                </div>
+                <div class="stat-bar"><span style="width:${c1Progress}%"></span></div>
+                <div class="stat-meta">
+                    <span class="badge">${c1.gama}</span>
+                    <span>${c1Progress}% potencial</span>
+                </div>
             </article>
-            <article>
-                <span>Componente 2</span>
-                <strong>${c2.nombre}</strong>
+            <article class="resultado-card ${c2Class}">
+                <div class="card-hero">
+                    <span>Componente 2</span>
+                    <strong>${c2.nombre}</strong>
+                </div>
                 <p>${c2.specs}</p>
-                <b>${c2.rendimiento}/10</b>
+                <div class="stat-line">
+                    <span>Rendimiento</span>
+                    <strong>${c2.rendimiento}/10</strong>
+                </div>
+                <div class="stat-bar"><span style="width:${c2Progress}%"></span></div>
+                <div class="stat-meta">
+                    <span class="badge">${c2.gama}</span>
+                    <span>${c2Progress}% potencial</span>
+                </div>
             </article>
         </div>
-        <p class="resultado-texto">${mensaje}</p>
     `;
 }
 
-cambiarCategoria("CPU");
+categoriaNueva.value = categoriaActual;
+cargarComponentes();

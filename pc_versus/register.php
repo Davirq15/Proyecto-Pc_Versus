@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach($usuarios as $u){
         if($u["usuario"] === $usuario){
             $errores[] = "El usuario ya existe";
+            break;
         }
     }
 
@@ -95,27 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <title>Register</title>
 <link rel="stylesheet" href="css/register.css">
 
-<style>
-.mensaje{
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.error{
-    background: #ff4d4d20;
-    border: 1px solid red;
-    color: red;
-}
-.success{
-    background: #4dff8820;
-    border: 1px solid green;
-    color: green;
-}
-</style>
-
 </head>
-<body>
+<body class="auth-page">
 
 <header class="header">
 <a href="index.php">
