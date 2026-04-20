@@ -65,7 +65,7 @@ session_start();
 
         <!-- Descripción del sistema -->
         <p class="hero-text">
-            Compara CPU, GPU y RAM en una interfaz clara, rapida y con estilo gamer.
+            Compara CPU, GPU y RAM en una interfaz clara, rápida y con estilo gamer.
             Ideal para practicar, aprender hardware o decidir tu proxima compra.
         </p>
 
