@@ -49,7 +49,7 @@ function limpiarSeleccion(resetResultado = true){
     if(resetResultado){
         resultado.innerHTML = `
             <h2>Resultado del duelo</h2>
-            <p class="resultado-texto">Todavia no hay comparacion. Selecciona dos componentes para empezar.</p>
+            <p class="resultado-texto">Todavía no hay comparación. Selecciona dos componentes para empezar.</p>
         `;
     }
 }
@@ -75,7 +75,7 @@ function renderLista(){
         lista.innerHTML = `
             <div class="empty-state">
                 <h3>Sin resultados</h3>
-                <p>No encontramos componentes con ese nombre. Prueba otra busqueda.</p>
+                <p>No encontramos componentes con ese nombre. Prueba otra búsqueda.</p>
             </div>
         `;
         return;
@@ -107,7 +107,7 @@ async function cargarComponentes(){
     lista.innerHTML = `
         <div class="empty-state">
             <h3>Cargando...</h3>
-            <p>Estamos leyendo el catalogo de componentes.</p>
+            <p>Estamos leyendo el catálogo de componentes.</p>
         </div>
     `;
 
@@ -116,7 +116,7 @@ async function cargarComponentes(){
         const contenido = await respuesta.json();
 
         if(!respuesta.ok || !contenido.ok){
-            throw new Error(contenido.mensaje || "No se pudo cargar el catalogo");
+            throw new Error(contenido.mensaje || "No se pudo cargar el catálogo.");
         }
 
         datos = contenido.datos;
@@ -128,7 +128,7 @@ async function cargarComponentes(){
                 <p>${error.message}</p>
             </div>
         `;
-        listaInfo.textContent = "No se pudo cargar el catalogo.";
+        listaInfo.textContent = "No se pudo cargar el catálogo.";
     }
 }
 
@@ -137,7 +137,7 @@ function alternarFormulario(){
     mensajeFormulario.classList.remove("error", "success");
 
     if(formAgregar.classList.contains("oculto")){
-        mensajeFormulario.textContent = "Aqui podras crear nuevos componentes y guardarlos en el JSON.";
+        mensajeFormulario.textContent = "Aquí podrás crear nuevos componentes y guardarlos en el JSON.";
         return;
     }
 
@@ -172,7 +172,7 @@ async function guardarComponente(event){
         const contenido = await respuesta.json();
 
         if(!respuesta.ok || !contenido.ok){
-            throw new Error(contenido.mensaje || "No se pudo guardar el componente");
+            throw new Error(contenido.mensaje || "No se pudo guardar el componente.");
         }
 
         datos = contenido.datos;
@@ -217,12 +217,12 @@ function comparar(){
 
     if(c1.rendimiento > c2.rendimiento){
         ganador = c1.nombre;
-        mensaje = `${c1.nombre} gana la comparacion de ${categoriaActual} por ${diferencia} punto(s).`;
+        mensaje = `${c1.nombre} gana la comparación de ${categoriaActual} por ${diferencia} punto(s).`;
     } else if(c2.rendimiento > c1.rendimiento){
         ganador = c2.nombre;
-        mensaje = `${c2.nombre} gana la comparacion de ${categoriaActual} por ${diferencia} punto(s).`;
+        mensaje = `${c2.nombre} gana la comparación de ${categoriaActual} por ${diferencia} punto(s).`;
     } else {
-        ganador = "Empate tecnico";
+        ganador = "Empate técnico";
         mensaje = `Ambos componentes ofrecen el mismo rendimiento en ${categoriaActual}.`;
     }
 

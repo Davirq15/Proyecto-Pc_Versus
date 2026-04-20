@@ -297,15 +297,18 @@ textarea{
     padding:20px;
     background:rgba(255,255,255,.06);
     border-radius:16px;
-    transition:.2s;
+    border:1px solid rgba(255,255,255,.06);
+    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
     opacity:0;
     animation:fadeIn .9s ease both;
     animation-delay:.12s;
 }
 
 .card:hover{
-    transform:translateY(-4px) scale(1.01);
+    transform:translateY(-8px) scale(1.02);
+    background:linear-gradient(135deg, rgba(89,243,255,.14), rgba(43,127,255,.10));
     border-color:var(--accent);
+    box-shadow:0 22px 38px rgba(6,12,24,.34);
 }
 
 .card.selected{
@@ -380,14 +383,15 @@ textarea{
     background:rgba(255,255,255,.06);
     border:1px solid rgba(255,255,255,.08);
     border-radius:20px;
-    transition:.25s ease;
+    transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
     opacity:0;
     animation:fadeIn .9s ease both;
     animation-delay:.12s;
 }
 
 .resultado-card:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
+    box-shadow:0 16px 36px rgba(0,0,0,.28);
 }
 
 .resultado-card.winner{

@@ -24,11 +24,11 @@ if(!isset($_SESSION["usuario"])){
 <main class="page-wrap">
     <section class="hero-panel">
         <div class="hero-copy">
-            <p class="kicker">Arena de comparacion</p>
-            <h1>Compara hardware y ahora tambien administra tu catalogo.</h1>
+            <p class="kicker">Arena de comparación</p>
+            <h1>Compara hardware y ahora también administra tu catálogo.</h1>
             <p class="intro-text">
-                Los componentes se cargan desde un archivo JSON. Tambien puedes agregar nuevos
-                modelos desde aqui y se guardaran para futuras sesiones.
+                Los componentes se cargan desde un archivo JSON. También puedes agregar nuevos
+                modelos desde aquí y se guardarán para futuras sesiones.
             </p>
 
             <div class="hero-stats">
@@ -38,11 +38,11 @@ if(!isset($_SESSION["usuario"])){
                 </article>
                 <article>
                     <strong>3</strong>
-                    <span>Categorias</span>
+                    <span>Categorías</span>
                 </article>
                 <article>
                     <strong>JSON</strong>
-                    <span>Catalogo persistente</span>
+                    <span>Catálogo persistente</span>
                 </article>
             </div>
         </div>
@@ -55,7 +55,7 @@ if(!isset($_SESSION["usuario"])){
     <section class="dashboard">
         <aside class="sidebar">
             <div class="panel">
-                <h2>Categorias</h2>
+                <h2>Categorías</h2>
                 <div class="categorias">
                     <button id="btnCPU" type="button">CPU</button>
                     <button id="btnGPU" type="button">GPU</button>
@@ -64,7 +64,7 @@ if(!isset($_SESSION["usuario"])){
             </div>
 
             <div class="panel">
-                <h2>Busqueda</h2>
+                <h2>Búsqueda</h2>
                 <input type="text" id="buscador" placeholder="Buscar componente...">
             </div>
 
@@ -75,7 +75,7 @@ if(!isset($_SESSION["usuario"])){
                 </div>
 
                 <form id="formAgregar" class="form-agregar oculto">
-                    <label for="categoriaNueva">Categoria</label>
+                    <label for="categoriaNueva">Categoría</label>
                     <select id="categoriaNueva" name="categoria" required>
                         <option value="CPU">CPU</option>
                         <option value="GPU">GPU</option>
@@ -89,7 +89,7 @@ if(!isset($_SESSION["usuario"])){
                     <input type="text" id="gamaNueva" name="gama" placeholder="Entrada, Media, Alta..." required>
 
                     <label for="specsNueva">Especificaciones</label>
-                    <textarea id="specsNueva" name="specs" rows="3" placeholder="VRAM, nucleos, frecuencia..." required></textarea>
+                    <textarea id="specsNueva" name="specs" rows="3" placeholder="VRAM, núcleos, frecuencia..." required></textarea>
 
                     <label for="rendimientoNuevo">Rendimiento</label>
                     <input type="number" id="rendimientoNuevo" name="rendimiento" min="1" max="10" placeholder="1 a 10" required>
@@ -97,36 +97,36 @@ if(!isset($_SESSION["usuario"])){
                     <button type="submit">Guardar componente</button>
                 </form>
 
-                <p id="mensajeFormulario" class="mensaje-formulario">Aqui podras crear nuevos componentes y guardarlos en el JSON.</p>
+                <p id="mensajeFormulario" class="mensaje-formulario">Aquí podrás crear nuevos componentes y guardarlos en el JSON.</p>
             </div>
 
             <div class="panel">
-                <h2>Seleccion actual</h2>
+                <h2>Selección actual</h2>
                 <div class="seleccion">
                     <div class="slot" id="slot1">Componente 1</div>
                     <div class="slot" id="slot2">Componente 2</div>
                 </div>
 
                 <button id="btnComparar" type="button" disabled>Comparar ahora</button>
-                <button id="btnLimpiar" type="button" class="btn-secundario">Limpiar seleccion</button>
+                <button id="btnLimpiar" type="button" class="btn-secundario">Limpiar selección</button>
             </div>
         </aside>
 
         <section class="main-panel">
             <div class="lista-top">
                 <div>
-                    <p class="mini-label">Catalogo</p>
+                    <p class="mini-label">Catálogo</p>
                     <h2 id="tituloLista">Componentes disponibles</h2>
                 </div>
 
-                <p class="lista-info" id="listaInfo">Selecciona una categoria para comenzar.</p>
+                <p class="lista-info" id="listaInfo">Selecciona una categoría para comenzar.</p>
             </div>
 
             <div class="lista" id="lista"></div>
 
             <section class="resultado" id="resultado">
                 <h2>Resultado del duelo</h2>
-                <p class="resultado-texto">Todavia no hay comparacion. Selecciona dos componentes para empezar.</p>
+                <p class="resultado-texto">Todavía no hay comparación. Selecciona dos componentes para empezar.</p>
             </section>
         </section>
     </section>

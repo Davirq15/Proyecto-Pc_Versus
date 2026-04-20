@@ -1,90 +1,56 @@
 <?php
-
-// Incluye el archivo de funciones de validación
+// Incluye el archivo de funciones de validación.
 include("validaciones.php");
 
-// Arreglo donde se almacenan los errores encontrados
 $errores = [];
-
-// Variable para guardar mensaje de éxito
 $mensajeExito = "";
 
-// Verifica si el formulario fue enviado por método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Obtiene los datos enviados desde el formulario
-    // Si no existen, asigna una cadena vacía
     $usuario = $_POST["usuario"] ?? "";
     $email = $_POST["email"] ?? "";
     $password = $_POST["password"] ?? "";
 
-    // ===== VALIDACIONES =====
-
-    // Valida que el campo usuario no esté vacío
     if(validarVacio($usuario)){
-        $errores[] = "El usuario es obligatorio";
+        $errores[] = "El usuario es obligatorio.";
     }
 
-    // Valida que el correo tenga un formato correcto
     if(!validarEmail($email)){
-        $errores[] = "El correo no es válido";
+        $errores[] = "El correo no es válido.";
     }
 
-    // Valida que la contraseña tenga al menos 8 caracteres
     if(!validarPassword($password)){
-        $errores[] = "La contraseña debe tener mínimo 8 caracteres";
+        $errores[] = "La contraseña debe tener mínimo 8 caracteres.";
     }
 
-    // ===== LECTURA DE DATOS =====
-
-    // Nombre del archivo donde se almacenan los usuarios
     $archivo = "users.json";
 
-    // Verifica si el archivo existe
     if(file_exists($archivo)){
-
-        // Lee el contenido del archivo JSON y lo convierte en arreglo
         $usuarios = json_decode(file_get_contents($archivo), true);
-
     } else {
-        // Si no existe, se crea un arreglo vacío
         $usuarios = [];
     }
 
-    // ===== VALIDACIÓN DE USUARIO EXISTENTE =====
-
-    // Recorre los usuarios registrados para verificar si el usuario ya existe
     foreach($usuarios as $u){
         if($u["usuario"] === $usuario){
-            $errores[] = "El usuario ya existe";
+            $errores[] = "El usuario ya existe.";
             break;
         }
     }
 
-    // ===== LÓGICA DE NEGOCIO =====
-
-    // Solo se ejecuta si no hay errores
     if(count($errores) === 0){
-
-        // Encripta la contraseña por seguridad
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Crea un nuevo usuario en formato arreglo
         $usuarios[] = [
             "usuario" => $usuario,
             "email" => $email,
             "password" => $password
         ];
 
-        // Guarda los datos actualizados en el archivo JSON
         file_put_contents($archivo, json_encode($usuarios, JSON_PRETTY_PRINT));
 
-        // Mensaje de éxito
-        $mensajeExito = "Registro exitoso";
-        
-            // Redirige al inicio
-            header("Location: index.php");
-            exit();
+        $mensajeExito = "Registro exitoso.";
+        header("Location: index.php");
+        exit();
     }
 }
 ?>
@@ -93,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Register</title>
+<title>Registro | PC VERSUS</title>
 <link rel="stylesheet" href="css/register.css">
 
 </head>
@@ -140,5 +106,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-
-<!--VERSIÓN 3.6 DEL CÓDIGO-->
