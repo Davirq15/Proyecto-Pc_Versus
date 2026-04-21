@@ -4,121 +4,127 @@
             "nombre": "Ryzen 3 4100",
             "rendimiento": 5,
             "gama": "Entrada",
-      "specs": "4 núcleos / 8 hilos / 3.8 - 4.0 GHz"
+            "specs": "4 núcleos / 8 hilos / 3.8 - 4.0 GHz"
         },
         {
             "nombre": "Ryzen 3 5300G",
             "rendimiento": 6,
             "gama": "Entrada",
-      "specs": "4 núcleos / 8 hilos / 4.0 - 4.2 GHz"
+            "specs": "4 núcleos / 8 hilos / 4.0 - 4.2 GHz"
         },
         {
             "nombre": "Ryzen 5 4500",
             "rendimiento": 6,
             "gama": "Entrada",
-      "specs": "6 núcleos / 12 hilos / 3.6 - 4.1 GHz"
+            "specs": "6 núcleos / 12 hilos / 3.6 - 4.1 GHz"
         },
         {
             "nombre": "Ryzen 5 5600",
             "rendimiento": 8,
             "gama": "Media",
-      "specs": "6 núcleos / 12 hilos / 3.5 - 4.4 GHz"
+            "specs": "6 núcleos / 12 hilos / 3.5 - 4.4 GHz"
         },
         {
             "nombre": "Ryzen 5 5600X",
             "rendimiento": 8,
             "gama": "Media",
-      "specs": "6 núcleos / 12 hilos / 3.7 - 4.6 GHz"
+            "specs": "6 núcleos / 12 hilos / 3.7 - 4.6 GHz"
         },
         {
             "nombre": "Ryzen 5 7600X",
             "rendimiento": 9,
             "gama": "Media",
-      "specs": "6 núcleos / 12 hilos / 4.7 - 5.3 GHz"
+            "specs": "6 núcleos / 12 hilos / 4.7 - 5.3 GHz"
         },
         {
             "nombre": "Ryzen 7 5700X",
             "rendimiento": 9,
             "gama": "Alta",
-      "specs": "8 núcleos / 16 hilos / 3.4 - 4.6 GHz"
+            "specs": "8 núcleos / 16 hilos / 3.4 - 4.6 GHz"
         },
         {
             "nombre": "Ryzen 7 5800X",
             "rendimiento": 9,
             "gama": "Alta",
-      "specs": "8 núcleos / 16 hilos / 3.8 - 4.7 GHz"
+            "specs": "8 núcleos / 16 hilos / 3.8 - 4.7 GHz"
         },
         {
             "nombre": "Ryzen 7 7700X",
             "rendimiento": 10,
             "gama": "Alta",
-      "specs": "8 núcleos / 16 hilos / 4.5 - 5.4 GHz"
+            "specs": "8 núcleos / 16 hilos / 4.5 - 5.4 GHz"
         },
         {
             "nombre": "Ryzen 9 5900X",
             "rendimiento": 10,
             "gama": "Entusiasta",
-      "specs": "12 núcleos / 24 hilos / 3.7 - 4.8 GHz"
+            "specs": "12 núcleos / 24 hilos / 3.7 - 4.8 GHz"
         },
         {
             "nombre": "Ryzen 9 7950X",
             "rendimiento": 10,
             "gama": "Entusiasta",
-      "specs": "16 núcleos / 32 hilos / 4.5 - 5.7 GHz"
+            "specs": "16 núcleos / 32 hilos / 4.5 - 5.7 GHz"
         },
         {
             "nombre": "Intel i3 12100F",
             "rendimiento": 6,
             "gama": "Entrada",
-      "specs": "4 núcleos / 8 hilos / 3.3 - 4.3 GHz"
+            "specs": "4 núcleos / 8 hilos / 3.3 - 4.3 GHz"
         },
         {
             "nombre": "Intel i5 12400F",
             "rendimiento": 8,
             "gama": "Media",
-      "specs": "6 núcleos / 12 hilos / 2.5 - 4.4 GHz"
+            "specs": "6 núcleos / 12 hilos / 2.5 - 4.4 GHz"
         },
         {
             "nombre": "Intel i5 12600K",
             "rendimiento": 9,
             "gama": "Media",
-      "specs": "10 núcleos / 16 hilos / 3.7 - 4.9 GHz"
+            "specs": "10 núcleos / 16 hilos / 3.7 - 4.9 GHz"
         },
         {
             "nombre": "Intel i5 13400F",
             "rendimiento": 9,
             "gama": "Media",
-      "specs": "10 núcleos / 16 hilos / 2.5 - 4.6 GHz"
+            "specs": "10 núcleos / 16 hilos / 2.5 - 4.6 GHz"
         },
         {
             "nombre": "Intel i7 12700K",
             "rendimiento": 10,
             "gama": "Alta",
-      "specs": "12 núcleos / 20 hilos / 3.6 - 5.0 GHz"
+            "specs": "12 núcleos / 20 hilos / 3.6 - 5.0 GHz"
         },
         {
             "nombre": "Intel i7 13700K",
             "rendimiento": 10,
             "gama": "Entusiasta",
-      "specs": "16 núcleos / 24 hilos / 3.4 - 5.4 GHz"
+            "specs": "16 núcleos / 24 hilos / 3.4 - 5.4 GHz"
         },
         {
             "nombre": "Intel i7 14700F",
             "rendimiento": 10,
             "gama": "Alta",
-      "specs": "20 núcleos / 28 hilos / 2.2 - 5.3 GHz"
+            "specs": "20 núcleos / 28 hilos / 2.2 - 5.3 GHz"
         },
         {
             "nombre": "Intel i9 13900K",
             "rendimiento": 10,
             "gama": "Entusiasta",
-      "specs": "24 núcleos / 32 hilos / 3.0 - 5.8 GHz"
+            "specs": "24 núcleos / 32 hilos / 3.0 - 5.8 GHz"
         },
         {
             "nombre": "Intel i9 14900K",
             "rendimiento": 10,
             "gama": "Entusiasta",
-      "specs": "24 núcleos / 32 hilos / 3.2 - 6.0 GHz"
+            "specs": "24 núcleos / 32 hilos / 3.2 - 6.0 GHz"
+        },
+        {
+            "nombre": "Ryzen 5 PRO 5650U",
+            "rendimiento": 7,
+            "gama": "Media",
+            "specs": "6 núcleos / 12 hilos / 3.8 - 4.2 Ghz"
         }
     ],
     "GPU": [

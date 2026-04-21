@@ -1,11 +1,7 @@
 [
     {
-        "usuario": "david",
+        "usuario": "david1",
         "email": "alu.2611557@itesrenedescartes.edu.mx",
-<<<<<<< HEAD
-        "password": "$2y$10$p3jflS42E9.befco6R3Qo.eVleC7xg.MWG1YreuxqeLDlzDRt49ly"
-=======
-        "password": "$2y$10$IcTA4U4xYDkyjn22k4.sNea8UgQGubYheT6qaiUpWnIAIHqlUJL5S"
->>>>>>> updates
+        "password": "$2y$10$oC6h\/KSf0YXE.frAoSnUiOcyFWE2O01J4fcL6uDj4QNlOi7m\/VcDe"
     }
 ]
