@@ -125,6 +125,12 @@
             "rendimiento": 7,
             "gama": "Media",
             "specs": "6 núcleos / 12 hilos / 3.8 - 4.2 Ghz"
+        },
+        {
+            "nombre": "Ryzen 5 5500",
+            "rendimiento": 7,
+            "gama": "Media",
+            "specs": "Nucleos 8 / 16 Hilos / 4.2 - 4.5 GHZ"
         }
     ],
     "GPU": [

@@ -40,10 +40,6 @@ if(!isset($_SESSION["usuario"])){
                     <strong>3</strong>
                     <span>Categorías</span>
                 </article>
-                <article>
-                    <strong>JSON</strong>
-                    <span>Catálogo persistente</span>
-                </article>
             </div>
         </div>
 

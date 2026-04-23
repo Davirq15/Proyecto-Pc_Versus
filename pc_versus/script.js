@@ -22,7 +22,7 @@ document.getElementById("btnCPU").onclick = () => cambiarCategoria("CPU");
 document.getElementById("btnGPU").onclick = () => cambiarCategoria("GPU");
 document.getElementById("btnRAM").onclick = () => cambiarCategoria("RAM");
 
-buscador.addEventListener("input", () => renderLista());
+buscador.addEventListener("input", () => renderLista()); //Buscar componentes mediante vaya escribiendo
 btnComparar.addEventListener("click", comparar);
 btnLimpiar.addEventListener("click", limpiarSeleccion);
 btnMostrarFormulario.addEventListener("click", alternarFormulario);
@@ -58,7 +58,7 @@ function renderLista(){
     const filtro = buscador.value.trim().toLowerCase();
     const catalogo = Array.isArray(datos[categoriaActual]) ? datos[categoriaActual] : [];
     const componentes = catalogo.filter(comp =>
-        comp.nombre.toLowerCase().includes(filtro)
+        comp.nombre.toLowerCase().includes(filtro) //SE realiazan estos
     );
 
     botonesCategoria.forEach(boton => {
